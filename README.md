@@ -554,7 +554,7 @@ This LMS API supports:
 ## 1️⃣ Clone Repository
 
 ```bash
-git clone <repository_link>
+git clone https://github.com/MalikRahmat/Mern-Stack-LMS
 ```
 
 ---
