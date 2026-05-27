@@ -10,7 +10,7 @@ The system supports three user roles:
 * Instructor
 * Student
 
-The application allows instructors to create and manage courses, students to enroll and watch lessons, and admins to manage users and platform activities.
+The application allows instructors to create and manage courses, students to enroll and watch lessons, and admins to manage users and platform activities.Admin is auto-created on first server run.
 
 ---
 
