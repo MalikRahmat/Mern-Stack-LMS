@@ -547,9 +547,9 @@ This LMS API supports:
 - Analytics Dashboard
 - Category System
 
-```
 
-# ⚙️ Installation Steps
+
+# Installation Steps
 
 ## 1️⃣ Clone Repository
 
