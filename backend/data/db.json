@@ -1,0 +1,141 @@
+{
+  "users": [
+    {
+      "_id": "user_admin_001",
+      "name": "System Administrator",
+      "email": "admin@lms.com",
+      "password": "$2a$10$wzNshqG77pP2zO9Qv3Sj5.ZqO5OfeE5M9Z9Yx60c0G7z0Z4sZ9SOm",
+      "role": "admin",
+      "createdAt": "2026-05-20T19:12:53.345Z",
+      "updatedAt": "2026-05-20T19:12:53.347Z"
+    },
+    {
+      "_id": "user_instructor_001",
+      "name": "Dr. Sarah Jenkins",
+      "email": "instructor@lms.com",
+      "password": "$2a$10$wzNshqG77pP2zO9Qv3Sj5.ZqO5OfeE5M9Z9Yx60c0G7z0Z4sZ9SOm",
+      "role": "instructor",
+      "createdAt": "2026-05-20T19:12:53.347Z",
+      "updatedAt": "2026-05-20T19:12:53.347Z"
+    },
+    {
+      "_id": "user_instructor_002",
+      "name": "Prof. David Miller",
+      "email": "david@lms.com",
+      "password": "$2a$10$wzNshqG77pP2zO9Qv3Sj5.ZqO5OfeE5M9Z9Yx60c0G7z0Z4sZ9SOm",
+      "role": "instructor",
+      "createdAt": "2026-05-20T19:12:53.347Z",
+      "updatedAt": "2026-05-20T19:12:53.347Z"
+    },
+    {
+      "_id": "user_student_001",
+      "name": "John Doe",
+      "email": "student@lms.com",
+      "password": "$2a$10$wzNshqG77pP2zO9Qv3Sj5.ZqO5OfeE5M9Z9Yx60c0G7z0Z4sZ9SOm",
+      "role": "student",
+      "createdAt": "2026-05-20T19:12:53.347Z",
+      "updatedAt": "2026-05-20T19:12:53.347Z"
+    }
+  ],
+  "courses": [
+    {
+      "_id": "course_001",
+      "title": "Full Stack MERN Developer BootCamp",
+      "description": "Comprehensive guide to building full stack web applications with MongoDB, Express, React, and Node.js.",
+      "instructor": "user_instructor_001",
+      "category": "Web Development",
+      "price": 99.99,
+      "createdAt": "2026-05-20T19:12:53.347Z",
+      "updatedAt": "2026-05-20T19:12:53.347Z"
+    },
+    {
+      "_id": "course_002",
+      "title": "Mastering React & Redux Toolkit",
+      "description": "Deep dive into modern React concepts, hooks, context API, state management, and Redux Toolkit.",
+      "instructor": "user_instructor_001",
+      "category": "Frontend Development",
+      "price": 49.99,
+      "createdAt": "2026-05-20T19:12:53.347Z",
+      "updatedAt": "2026-05-20T19:12:53.347Z"
+    },
+    {
+      "_id": "course_003",
+      "title": "Database Design & SQL vs NoSQL",
+      "description": "Learn standard database concepts, SQL servers (Postgres) vs Document Stores (MongoDB), schemas and optimization.",
+      "instructor": "user_instructor_002",
+      "category": "Database Management",
+      "price": 0,
+      "createdAt": "2026-05-20T19:12:53.347Z",
+      "updatedAt": "2026-05-20T19:12:53.347Z"
+    }
+  ],
+  "enrollments": [
+    {
+      "_id": "enrollment_001",
+      "student": "user_student_001",
+      "course": "course_001",
+      "progress": 25,
+      "completedLessons": [
+        "lesson_001"
+      ],
+      "createdAt": "2026-05-20T19:12:53.347Z",
+      "updatedAt": "2026-05-20T19:12:53.347Z"
+    },
+    {
+      "_id": "enrollment_002",
+      "student": "user_student_001",
+      "course": "course_003",
+      "progress": 0,
+      "completedLessons": [],
+      "createdAt": "2026-05-20T19:12:53.347Z",
+      "updatedAt": "2026-05-20T19:12:53.347Z"
+    }
+  ],
+  "lessons": [
+    {
+      "_id": "lesson_001",
+      "course": "course_001",
+      "title": "Introduction to MERN & Environment Setup",
+      "content": "Welcome to MERN developer Bootcamp! In this lesson we will understand the pillars of the MERN stack architecture...",
+      "videoUrl": "https://www.youtube.com/embed/SccSCuHh5Hc",
+      "createdAt": "2026-05-20T19:12:53.347Z",
+      "updatedAt": "2026-05-20T19:12:53.347Z"
+    },
+    {
+      "_id": "lesson_002",
+      "course": "course_001",
+      "title": "Understanding Node.js & Express Basics",
+      "content": "Express is a minimal and flexible Node.js web application framework. Learn how to write your first server, setup routes, retrieve query parameters, and handle JSON bodies.",
+      "videoUrl": "https://www.youtube.com/embed/BasicsExpressND",
+      "createdAt": "2026-05-20T19:12:53.347Z",
+      "updatedAt": "2026-05-20T19:12:53.347Z"
+    },
+    {
+      "_id": "lesson_003",
+      "course": "course_001",
+      "title": "Mongoose Schemas & Database Connections",
+      "content": "Define schemas for holding structured documents under Mongoose, learn how timestamps work and how references connect different collections dynamically.",
+      "videoUrl": "https://www.youtube.com/embed/MongoSchemaTut",
+      "createdAt": "2026-05-20T19:12:53.347Z",
+      "updatedAt": "2026-05-20T19:12:53.347Z"
+    },
+    {
+      "_id": "lesson_004",
+      "course": "course_002",
+      "title": "Introduction to React & Virtual DOM",
+      "content": "Discover why React uses a virtual representation of the browser tree to apply batch patches at blistering speed.",
+      "videoUrl": "https://www.youtube.com/embed/ReactVirtualDOM",
+      "createdAt": "2026-05-20T19:12:53.347Z",
+      "updatedAt": "2026-05-20T19:12:53.347Z"
+    },
+    {
+      "_id": "lesson_005",
+      "course": "course_003",
+      "title": "Structured Queries vs Key-Document Stores",
+      "content": "Understand when SQL tables with strict relational joins are preferable compared to JSON documents that maximize scale.",
+      "videoUrl": "https://www.youtube.com/embed/SQLvsNoSQLIntro",
+      "createdAt": "2026-05-20T19:12:53.347Z",
+      "updatedAt": "2026-05-20T19:12:53.347Z"
+    }
+  ]
+}

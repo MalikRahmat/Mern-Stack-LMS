@@ -1,0 +1,101 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #1e293b;
+  background-color: #f1f5f9; /* Slate-100 body background */
+  min-height: 100vh;
+}
+
+.bg-slate-100 {
+  background-color: #f1f5f9;
+}
+
+.text-indigo-600 {
+  color: #4f46e5;
+}
+
+.bg-indigo-600 {
+  background-color: #4f46e5;
+}
+
+/* Custom buttons */
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.footer {
+  background-color: #ffffff;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Rounded Cards with Bento Style */
+.card {
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 16px !important; /* Elegant modern rounding */
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05) !important;
+  background-color: #ffffff;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Custom Buttons */
+.btn-primary {
+  background-color: #4f46e5 !important; /* Beautiful Indigo */
+  border-color: #4f46e5 !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  padding: 0.6rem 1.4rem !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.btn-primary:hover {
+  background-color: #4338ca !important;
+  border-color: #4338ca !important;
+  transform: translateY(-1px);
+}
+
+.btn-outline-primary {
+  color: #4f46e5 !important;
+  border-color: #4f46e5 !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: #4f46e5 !important;
+  color: #ffffff !important;
+}
+
+/* Bento layout custom helpers */
+.bento-dark-banner {
+  background: linear-gradient(135deg, #4f46e5 0%, #312e81 100%);
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.bento-chart-container {
+  min-height: 300px;
+}
+.text-white-hover:hover {
+  color: #fff !important;
+  transition: color 0.2s ease-in-out;
+}
+
+.text-info-hover:hover {
+  color: #0dcaf0 !important;
+  transition: color 0.2s ease-in-out;
+}
+.btn-check:checked + .check-white-text {
+  color: #ffffff !important;
+}
+
+
