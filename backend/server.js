@@ -1,4 +1,3 @@
-const createAdmin = require("./createAdmin");
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
@@ -32,10 +31,6 @@ const app = express();
  */
 connectDB();
 
-
-//create admin
-
-createAdmin();
 /**
  * ============================
  * MIDDLEWARE

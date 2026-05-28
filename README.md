@@ -259,6 +259,24 @@ lms-mern-project/
 
 ---
 
+## Admin Access
+
+To grant admin and instructor access, update the user's role in the database from:
+
+```json
+"role": "student"
+```
+
+to:
+
+```json
+"role": "admin"
+"role": "instructor"
+```
+
+This can be done using MongoDB Compass or MongoDB Atlas.
+
+
 # 🔌 API Endpoints
 
 # LMS MERN Project - API Documentation
@@ -267,6 +285,7 @@ lms-mern-project/
 ```
 /api
 ```
+
 
 ---
 
