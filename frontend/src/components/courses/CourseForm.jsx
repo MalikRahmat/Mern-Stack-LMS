@@ -21,19 +21,17 @@ export const CourseForm = ({ initialData = null, onSubmit, submitting = false })
 
   /**
    * Initial data aggregation lifecycle hook.
-   * Compiles live records straight from the remote database collection.
    */
   useEffect(() => {
     const synchronizeTaxonomies = async () => {
       try {
         let fetchedData = [];
         
-        // Fetching real-time categories from backend endpoint
         if (categoryService && typeof categoryService.getCategories === 'function') {
+          // categoryName.js direct response.data.data return kr rha ha
           fetchedData = await categoryService.getCategories();
         }
         
-        // Extract string arrays from database records array
         const extractedCategories = (fetchedData || []).map(c => c.name);
         setDbCategories(extractedCategories);
         
@@ -41,11 +39,12 @@ export const CourseForm = ({ initialData = null, onSubmit, submitting = false })
         if (initialData) {
           setTitle(initialData.title || '');
           setDescription(initialData.description || '');
-          setCategory(initialData.category || extractedCategories[0] || '');
+          setCategory(initialData.category || '');
           setPrice(initialData.price || 0);
         } else if (extractedCategories.length > 0 && !category) {
-          // Auto-select first active database category for new items
           setCategory(extractedCategories[0]);
+        } else {
+          setCategory('');
         }
       } catch (err) {
         setErrorMsg('Failed to establish taxonomy sync with the server database.');
@@ -53,28 +52,26 @@ export const CourseForm = ({ initialData = null, onSubmit, submitting = false })
     };
 
     synchronizeTaxonomies();
-  }, [initialData]);
+  }, [initialData?.title, initialData?.description, initialData?.category, initialData?.price]);
 
   /**
-   * Catches runtime select drop changes.
-   * Redirects user flow if the special action tag execution key is matched.
+   * Handles dropdown change event
    */
   const handleCategorySelectionChange = (e) => {
     const selectedValue = e.target.value;
     if (selectedValue === 'TRIGGER_NEW_TAXONOMY_FLOW') {
-      setIsAddingNew(true);
+      setIsAddingNew(true); // Input field show karega
     } else {
-      setCategory(selectedValue);
+      setCategory(selectedValue); // Normal category select karega
+      setIsAddingNew(false);
     }
   };
 
   /**
-   * Dispatches an asynchronous transactional post request to append a new custom entry.
+   * Adds new custom category
    */
-  const handleAddNewCategory = async (e) => {
-    e.preventDefault();
+  const handleAddNewCategory = async () => {
     const cleanName = newCategoryName.trim();
-    
     if (!cleanName) return;
 
     try {
@@ -86,10 +83,8 @@ export const CourseForm = ({ initialData = null, onSubmit, submitting = false })
         successfullyCreatedNode = await categoryService.createCategory(cleanName);
       }
 
-      // Read returned validation payload or fallback to localized structural object parsing
       const targetCategoryName = successfullyCreatedNode?.name || cleanName;
 
-      // Update state matrix seamlessly without re-rendering or crashing target course metrics
       if (!dbCategories.includes(targetCategoryName)) {
         setDbCategories([...dbCategories, targetCategoryName]);
       }
@@ -104,9 +99,6 @@ export const CourseForm = ({ initialData = null, onSubmit, submitting = false })
     }
   };
 
-  /**
-   * Validates form parameters and forwards secure payload schemas up to container layers.
-   */
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrorMsg('');
@@ -141,7 +133,6 @@ export const CourseForm = ({ initialData = null, onSubmit, submitting = false })
           </div>
         )}
 
-        {/* Main Application Execution Form */}
         <form onSubmit={handleSubmit}>
           {/* Title Input Field */}
           <div className="mb-3">
@@ -168,19 +159,23 @@ export const CourseForm = ({ initialData = null, onSubmit, submitting = false })
                   value={category}
                   onChange={handleCategorySelectionChange}
                   disabled={submitting}
+                  required
                 >
+                
+                  <option value="" disabled>-- Select a Category --</option>
+                  
                   {dbCategories.map((cat, idx) => (
                     <option key={idx} value={cat}>
                       {cat}
                     </option>
                   ))}
+                  
                   <option value="TRIGGER_NEW_TAXONOMY_FLOW" className="text-primary fw-bold">
-                    ➕ + Add New Category...
+                    ➕ Add New Category...
                   </option>
                 </select>
               </div>
             ) : (
-              
               <div className="p-3 bg-white rounded-3 border border-light shadow-sm mt-2">
                 <span className="text-primary d-block small fw-bold mb-2">Configure New Institutional Classification:</span>
                 <div className="row g-2 align-items-center">
@@ -192,6 +187,12 @@ export const CourseForm = ({ initialData = null, onSubmit, submitting = false })
                       placeholder="Enter custom category name (e.g. Cloud Architecture)"
                       value={newCategoryName}
                       onChange={(e) => setNewCategoryName(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                          e.preventDefault();
+                          if (newCategoryName.trim() && !categoryLoading) handleAddNewCategory();
+                        }
+                      }}
                       disabled={categoryLoading}
                       autoFocus
                     />
