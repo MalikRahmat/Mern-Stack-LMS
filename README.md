@@ -602,13 +602,21 @@ Create `.env` file inside backend folder:
 
 ```env
 PORT=5000
-MONGO_URI=your_mongodb_connection
-JWT_SECRET=your_secret_key
+FRONTEND_URL=http://localhost:3000
+JWT_SECRET=your_JWT_secret_key
+MONGO_URI=your_mongodb_url
+NODE_ENV=development
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_USER=Your_Email
+EMAIL_PASSWORD=Google App Password
+EMAIL_FROM=Your_Email
 ```
 
 Create `.env` file inside frontend folder:
 
 ```env
+PORT=3000
 REACT_APP_API_URL=http://localhost:5000/api
 ```
 
