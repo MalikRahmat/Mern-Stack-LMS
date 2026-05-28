@@ -679,8 +679,6 @@ npm start
 ![Student Dashboard](./docs/screenshots/student_dashboard/1.png)
 ![Student Dashboard](./docs/screenshots/student_dashboard/2.png)
 ![Student Dashboard](./docs/screenshots/student_dashboard/3.png)
-![Student Dashboard](./docs/screenshots/student_dashboard/4.png)
-![Student Dashboard](./docs/screenshots/student_dashboard/5.png)
 
 ---
 
