@@ -19,7 +19,6 @@ const courseRoutes = require("./routes/courseRoutes");
 const enrollmentRoutes = require("./routes/enrollmentRoutes");
 const lessonRoutes = require("./routes/lessonRoutes");
 const analyticsRoutes = require("./routes/analyticsRoutes");
-// ✅ NEW IMPORT: Adding custom category routing matrix
 const categoryRoutes = require("./routes/categoryRoutes");
 
 const app = express();
