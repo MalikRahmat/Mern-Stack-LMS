@@ -37,20 +37,10 @@ connectDB();
  * ============================
  */
 
-// Configure CORS to support video streaming and range headers origin: process.env.FRONTEND_URL,
+// Configure CORS to support video streaming and range headers 
 app.use(
   cors({
-    origin: function (origin, callback) {
-      // Agar request local ho, main domain se ho, ya netlify ke kisi bhi deploy preview se ho
-      if (!origin || 
-          origin === "https://lmsbymalik-rahmat.netlify.app" || 
-          origin.endsWith(".netlify.app") || 
-          origin.startsWith("http://localhost")) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: process.env.FRONTEND_URL,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "Range"],
     exposedHeaders: ["Content-Range", "Accept-Ranges", "Content-Length"],
