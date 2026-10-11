@@ -33,7 +33,7 @@ export const CourseDetails = ({
     user?.role === 'admin' ||
     user?.role === 'instructor';
 
-  // 📑 STORAGE LOCK: Unique lookup key scoped directly per course scope layout identity
+  //  STORAGE LOCK: Unique lookup key scoped directly per course scope layout identity
   const STORAGE_KEY = course?._id ? `active_lesson_course_${course._id}` : null;
 
   /**
